@@ -138,6 +138,25 @@ footer a{color:var(--mist)}
   .hero-in>*,.portrait{opacity:1;transform:none}
 }
 @media print{header,.cta{display:none}body{background:#fff;color:#000}}
+
+/* Screenshot gallery */
+.shots-btn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+dialog#gal{width:min(1000px,94vw);max-height:92vh;margin:auto;padding:0;background:var(--navy-2);color:var(--mist);border:1px solid var(--line);border-radius:16px;overflow:auto}
+dialog#gal::backdrop{background:rgba(5,12,24,.82)}
+.gal-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;background:var(--navy-2);border-bottom:1px solid var(--line)}
+.gal-top h3{font-size:1.1rem}
+.gal-btn{background:var(--navy);color:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:inherit;font-size:.9rem;cursor:pointer}
+.gal-btn:hover{border-color:var(--accent);color:var(--accent)}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;padding:20px;list-style:none;margin:0}
+.gal-grid button{display:block;width:100%;aspect-ratio:16/10;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--navy);color:var(--muted);cursor:pointer;font:inherit;transition:border-color .2s,transform .2s}
+.gal-grid button:hover{border-color:var(--accent);transform:translateY(-2px)}
+.gal-grid img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-view{padding:20px;display:grid;gap:14px;justify-items:center}
+.gal-view[hidden],.gal-grid[hidden]{display:none}
+.gal-stage{width:100%;min-height:200px;display:grid;place-items:center;background:var(--navy);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.gal-stage img{max-width:100%;max-height:68vh;display:block}
+.gal-stage p{padding:40px 20px;text-align:center;color:var(--muted)}
+.gal-nav{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
@@ -227,7 +246,7 @@ footer a{color:var(--mist)}
       </li>
       <li>
         <h3>Technical Advisor</h3>
-        <p class="meta"><b>Concentrix Inc.</b> · May 2024 – Present</p>
+        <p class="meta"><b>Concentrix Inc.</b> · May 2024 – Feb 2026</p>
         <ul>
           <li>Provided Tier 1/Tier 2 inbound technical support via phone and chat, resolving hardware, software and network issues for a high-volume customer base.</li>
           <li>Maintained 100% case documentation in a call tracking database with detailed notes, ensuring SLA compliance and complete technical history.</li>
@@ -270,7 +289,6 @@ footer a{color:var(--mist)}
         <ul class="chips"><li>Golang</li><li>Gin</li><li>JWT</li><li>MongoDB</li></ul>
         <div class="plinks">
           <a href="https://github.com/mohaiminulislam17/User_Auth_-GO-LANG-" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://YOUR-DEMO-LINK.example" target="_blank" rel="noopener">Live demo (placeholder)</a>
         </div>
       </article>
       <article class="card">
@@ -278,12 +296,11 @@ footer a{color:var(--mist)}
         <p>Designed and implemented a Python automation engine for identifying tickers. Integrated Supabase with FastAPI to build web applications on React and Node.js, contributing to both front-end and back-end work.</p>
         <ul class="chips"><li>Python</li><li>FastAPI</li><li>Supabase</li><li>React</li><li>Node.js</li></ul>
         <div class="plinks">
-          <a href="https://github.com/YOUR-USERNAME/YOUR-CAPSTONE-REPO" target="_blank" rel="noopener">GitHub (placeholder)</a>
-          <a href="https://YOUR-DEMO-LINK.example" target="_blank" rel="noopener">Live demo (placeholder)</a>
+          <button type="button" class="shots-btn" id="openShots" aria-haspopup="dialog">Screenshots</button>
         </div>
       </article>
     </div>
-    <p class="note">Replace the placeholder links above with your real repository and demo URLs, or delete a link you don't have.</p>
+    <!--<p class="note">Replace the placeholder links above with your real repository and demo URLs, or delete a link you don't have.</p>-->
   </div>
 </section>
 
@@ -291,7 +308,7 @@ footer a{color:var(--mist)}
 <section class="contact" id="contact" aria-labelledby="h-contact">
   <div class="wrap">
     <h2 id="h-contact">Contact</h2>
-    <p>Hiring for an IT support, networking, cybersecurity or business analyst role? I'd like to hear from you.</p>
+    <p>Hiring for an IT Support Professional specializing in infrastructure, Networking, and Security Operations? I'd like to hear from you.</p>
     <div class="cta">
       <a class="btn solid" href="#contact" data-c="e">Email me</a>
       <a class="btn solid" href="#contact" data-c="p">Call me</a>
@@ -299,7 +316,7 @@ footer a{color:var(--mist)}
       <a class="btn ghost" href="https://github.com/mohaiminulislam17" target="_blank" rel="noopener">GitHub</a>
       <a class="btn ghost" href="Mohaiminul_Islam_IT_Support.pdf" download>Download resume</a>
     </div>
-    <p class="note" id="reveal" aria-live="polite">Email and phone are kept out of the page source to deter bots. Use the buttons above to contact me.</p>
+    <!--<p class="note" id="reveal" aria-live="polite">Email and phone are kept out of the page source to deter bots. Use the buttons above to contact me.</p>-->
   </div>
 </section>
 </main>
@@ -310,6 +327,18 @@ footer a{color:var(--mist)}
     <a href="#top">Back to top</a>
   </div>
 </footer>
+
+<dialog id="gal" aria-labelledby="galTitle">
+  <div class="gal-top">
+    <h3 id="galTitle">Bayxis Capital: screenshots</h3>
+    <div><button type="button" class="gal-btn" id="galBack" hidden>All screenshots</button> <button type="button" class="gal-btn" id="galClose">Close</button></div>
+  </div>
+  <ul class="gal-grid" id="galGrid"></ul>
+  <div class="gal-view" id="galView" hidden>
+    <div class="gal-stage" id="galStage"></div>
+    <div class="gal-nav"><button type="button" class="gal-btn" id="galPrev" aria-label="Previous screenshot">← Prev</button><span id="galCount"></span><button type="button" class="gal-btn" id="galNext" aria-label="Next screenshot">Next →</button></div>
+  </div>
+</dialog>
 
 <script>
 (function(){
@@ -325,9 +354,44 @@ footer a{color:var(--mist)}
     a.addEventListener('click',function(ev){
       ev.preventDefault();
       var k=a.getAttribute('data-c'),v=atob(D[k]);
-      document.getElementById('reveal').textContent=(k==='e'?'Email: ':'Phone: ')+v;
+      var r=document.getElementById('reveal');if(r)r.textContent=(k==='e'?'Email: ':'Phone: ')+v;
       location.href=(k==='e'?'mailto:':'tel:')+v;
     });
+  });
+  // Screenshot gallery. EDIT: images load from the screenshots/ folder (shot-1.jpg ... shot-10.jpg)
+  var N=10,dlg=document.getElementById('gal'),grid=document.getElementById('galGrid'),view=document.getElementById('galView'),
+      stage=document.getElementById('galStage'),back=document.getElementById('galBack'),cur=0,opener=null;
+  function src(i){return 'screenshots/shot-'+(i+1)+'.jpg'}
+  function alt(i){return 'Bayxis Capital screenshot '+(i+1)+' of '+N}
+  function img(i){var im=new Image();im.src=src(i);im.alt=alt(i);im.loading='lazy';return im}
+  for(var i=0;i<N;i++)(function(i){
+    var li=document.createElement('li'),bt=document.createElement('button'),im=img(i);
+    bt.type='button';bt.setAttribute('aria-label','View screenshot '+(i+1));
+    im.onerror=function(){im.remove();bt.append('Screenshot '+(i+1))};
+    bt.appendChild(im);bt.addEventListener('click',function(){show(i)});
+    li.appendChild(bt);grid.appendChild(li);
+  })(i);
+  function show(i){
+    cur=(i+N)%N;stage.textContent='';
+    var im=img(cur);im.loading='eager';
+    im.onerror=function(){im.remove();var p=document.createElement('p');p.textContent='Screenshot not found. Upload '+src(cur)+' to your repository.';stage.appendChild(p)};
+    stage.appendChild(im);
+    document.getElementById('galCount').textContent=(cur+1)+' / '+N;
+    grid.hidden=true;view.hidden=false;back.hidden=false;
+  }
+  function list(){view.hidden=true;back.hidden=true;grid.hidden=false}
+  function closeG(){dlg.close()}
+  document.getElementById('openShots').addEventListener('click',function(e){opener=e.currentTarget;list();dlg.showModal();document.body.style.overflow='hidden'});
+  dlg.addEventListener('close',function(){document.body.style.overflow='';if(opener)opener.focus()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)closeG()});
+  document.getElementById('galClose').addEventListener('click',closeG);
+  back.addEventListener('click',list);
+  document.getElementById('galPrev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('galNext').addEventListener('click',function(){show(cur+1)});
+  dlg.addEventListener('keydown',function(e){
+    if(view.hidden)return;
+    if(e.key==='ArrowLeft')show(cur-1);
+    if(e.key==='ArrowRight')show(cur+1);
   });
   // Highlight current section in nav
   var links=[].slice.call(m.querySelectorAll('a'));
