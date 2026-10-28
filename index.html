@@ -311,7 +311,6 @@ dialog#gal::backdrop{background:rgba(5,12,24,.82)}
     <p>Hiring for an IT Support Professional specializing in infrastructure, Networking, and Security Operations? I'd like to hear from you.</p>
     <div class="cta">
       <a class="btn solid" href="#contact" data-c="e">Email me</a>
-      <a class="btn solid" href="#contact" data-c="p">Call me</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/mohaiminul17-islam/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn ghost" href="https://github.com/mohaiminulislam17" target="_blank" rel="noopener">GitHub</a>
       <a class="btn ghost" href="Mohaiminul_Islam_IT_Support.pdf" download>Download resume</a>
@@ -349,13 +348,13 @@ dialog#gal::backdrop{background:rgba(5,12,24,.82)}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
   document.getElementById('yr').textContent=new Date().getFullYear();
   // Contact details are stored encoded and only assembled on click (deters scrapers)
-  var D={e:"bW9oYWltaW51bGZhaGltMTdAZ21haWwuY29t",p:"KzE0MzcyNTU1OTU2"};
+  var D={e:"bW9oYWltaW51bGZhaGltMTdAZ21haWwuY29t"};
   document.querySelectorAll('[data-c]').forEach(function(a){
     a.addEventListener('click',function(ev){
       ev.preventDefault();
       var k=a.getAttribute('data-c'),v=atob(D[k]);
-      var r=document.getElementById('reveal');if(r)r.textContent=(k==='e'?'Email: ':'Phone: ')+v;
-      location.href=(k==='e'?'mailto:':'tel:')+v;
+      var r=document.getElementById('reveal');if(r)r.textContent='Email: '+v;
+      location.href='mailto:'+v;
     });
   });
   // Screenshot gallery. EDIT: images load from the screenshots/ folder (shot-1.jpg ... shot-10.jpg)
